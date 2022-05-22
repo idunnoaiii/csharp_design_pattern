@@ -12,7 +12,7 @@ public class SingletonDatabase : IDatabase
 
     private readonly Dictionary<string, int> _populations;
     
-    private static Lazy<SingletonDatabase> _instanceLazy =  new Lazy<SingletonDatabase>(() =>new SingletonDatabase());
+    private readonly static Lazy<SingletonDatabase> _instanceLazy =  new Lazy<SingletonDatabase>(() =>new SingletonDatabase());
 
     private SingletonDatabase()
     {

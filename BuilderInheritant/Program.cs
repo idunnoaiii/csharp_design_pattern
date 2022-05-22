@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-var builder = new PersonAddressBuilder<>();
-
-builder.Called("Teacher").WorkAs("School");
+// var builder = new PersonAddressBuilder<>();
+//
+// builder.Called("Teacher").WorkAs("School");
 
 
 public class Person
