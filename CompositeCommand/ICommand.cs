@@ -106,5 +106,29 @@ public class MoneyTransfer : CompositeBankAccountCommand
             new BankAccountCommand(to, BankAccountCommand.Action.Deposit, amount)
         });
     }
-    
+
+    public override void Call()
+    {
+        BankAccountCommand lastCmd = null;
+        foreach (var cmd in this)
+        {
+            if (lastCmd == null || lastCmd.Success)
+            {
+                cmd.Call(); 
+                lastCmd = cmd;
+            }
+            else
+            {
+                lastCmd.Undo();
+                break;
+            }
+        }
+    }
+
+    public override void Undo()
+    {
+        base.Undo();
+    }
+
+    public override bool Success { get; }
 }
